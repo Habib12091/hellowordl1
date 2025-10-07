@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>Hello, World!</title>
+<style>
+
+    :root{
+
+      --bg: #0f172a;      /* dark slate */
+
+      --panel: #111827ee; /* translucent panel */
+
+      --text: #e5e7eb;
+
+      --muted:#94a3b8;
+
+      --accent:#3b82f6;
+
+    }
+
+    @media (prefers-color-scheme: light){
+
+      :root{
+
+        --bg:#f8fafc;
+
+        --panel:#ffffffee;
+
+        --text:#0f172a;
+
+        --muted:#475569;
+
+        --accent:#2563eb;
+
+      }
+
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+
+      height:100%; margin:0;
+
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      background:
+
+        radial-gradient(1000px 600px at 80% -20%, rgba(59,130,246,.10), transparent 60%),
+
+        radial-gradient(800px 500px at -10% 120%, rgba(59,130,246,.08), transparent 60%),
+
+        var(--bg);
+
+      color:var(--text);
+
+    }
+
+    .wrap{min-height:100%; display:grid; place-items:center; padding:24px}
+
+    .card{
+
+      width:min(720px, 92vw);
+
+      background:var(--panel);
+
+      backdrop-filter:blur(6px);
+
+      border:1px solid rgba(148,163,184,.2);
+
+      border-radius:18px;
+
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+
+      padding:28px;
+
+      animation:pop .45s cubic-bezier(.2,.8,.2,1)
+
+    }
+
+    @keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+    h1{margin:0 0 .5rem; font-size:clamp(1.6rem, 2vw + 1rem, 2.4rem)}
+
+    p{margin:.25rem 0 1rem; line-height:1.6; color:var(--muted)}
+
+    .actions{display:flex; gap:.6rem; flex-wrap:wrap}
+
+    button{
+
+      appearance:none;
+
+      border:1px solid rgba(148,163,184,.3);
+
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+
+      color:var(--text);
+
+      padding:.7rem 1rem; border-radius:999px; font-size:1rem; cursor:pointer;
+
+      transition:transform .08s ease, box-shadow .2s ease
+
+    }
+
+    button:hover{transform:translateY(-1px)}
+
+    .primary{
+
+      border-color:transparent;
+
+      background:linear-gradient(135deg, var(--accent), #60a5fa);
+
+      color:white; box-shadow:0 8px 18px rgba(59,130,246,.35)
+
+    }
+
+    code.inline{
+
+      display:inline-block; padding:.25rem .5rem; border-radius:.6rem;
+
+      background:rgba(59,130,246,.12); border:1px solid rgba(59,130,246,.35)
+
+    }
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="card" role="region" aria-labelledby="title" aria-live="polite">
+<h1 id="title">Hello, World! 👋</h1>
+<p id="msg">A tiny, responsive starter you can drop into any project. Click the button to say hello.</p>
+<div class="actions">
+<button id="helloBtn" class="primary">Say Hello</button>
+<button id="logBtn">Log to Console</button>
+</div>
+<p style="margin-top:1rem">
+
+        Starter file • HTML + CSS + JS • Supports light/dark via
+<code class="inline">prefers-color-scheme</code>
+</p>
+</section>
+</main>
+<script>
+
+    (function(){
+
+      const msg = document.getElementById('msg');
+
+      const helloBtn = document.getElementById('helloBtn');
+
+      const logBtn = document.getElementById('logBtn');
+
+      let count = 0;
+ 
+      helloBtn.addEventListener('click', () => {
+
+        count += 1;
+
+        msg.textContent = `Hello, World! (x${count})`;
+
+      });
+ 
+      logBtn.addEventListener('click', () => {
+
+        console.log('Hello, World! from your page 🎉');
+
+        alert('Open the browser console to see the message.');
+
+      });
+
+    })();
+</script>
+</body>
+</html>
+
+ 
